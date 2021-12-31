@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Remove
+{% endblock %}
+
+{% block main %}
+
+<form action="/remove" method="post" class="remove">
+    <div class="mb-3">
+        <select name="name">
+            <option disable>--Choose a Person--</option>
+            {% for person in people %}
+                <option>{{ person.first_name + " " + person.last_name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <button class="btn btn-primary" type="submit">Remove</button>
+</form>
+
+{% endblock %}

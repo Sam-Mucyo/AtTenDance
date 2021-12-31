@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+{% block main %}
+
+<div>
+    <h3>Attendance List</h3>
+</div>
+
+<div>
+    <h4> Date: {{ date }} </h2>
+</div>
+
+{% if attendees %}
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Time</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% set count = namespace(value=1) %}
+
+        {% for attendee in attendees %}
+        <tr>
+            <th scope="row">{{ count.value }}</th>
+            <td>{{ attendee.last_name }}</td>
+            <td>{{ attendee.first_name }}</td>
+            <td>{{ attendee.time }}</td>
+            {% set count.value = count.value + 1 %}
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% else %}
+<div>
+    <small> No One Has Showed Up Yet</small>
+</div>
+
+{% endif %}
+
+<a class="btn btn-primary" href="/attendance">Mark Attendance</a></button>
+
+<a class="btn btn-primary" href="/reg
+ister">Register</a></button>
+
+{% endblock %}

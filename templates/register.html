@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    <form action="/register" method="post">
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div>For your privacy, we won't save any of your pictures to our database. 
+                        Only your facial encodings are needed for registration. 
+                    </div>
+                    <img src="{{ url_for('video_feed') }}" height="100%" width=100% class="webcam" />
+                </div>
+
+                <div class="col form">
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="l_name" name="l_name" placeholder="Last Name" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="f_name" name="f_name" placeholder="First Name" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="contact" name="contact" placeholder="Phone number" type="number">
+                        <small>Format: No dashes or parenthesis</small>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit" >Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {% endblock %}

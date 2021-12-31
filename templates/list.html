@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Known People
+{% endblock %}
+{% block main %}
+
+<div>
+    <h3>Known People</h3>
+</div>
+
+<div>
+    <h4> Date: {{ date }} </h4>
+</div>
+
+{% if people %}
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set count = namespace(value=1) %}
+        {% for person in people %}
+            <tr>
+                <th scope="row">{{ count.value }}</th>
+                <td>{{ person.first_name }}</td>
+                <td>{{ person.last_name }}</td>
+                <td>{{ person.contact }}</td>
+            </tr>
+            {% set count.value = count.value + 1 %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% else %}
+<div>
+    <small> The list of known people will be here, once you register someone</small>
+</div>
+
+{% endif %}
+
+<a class="btn btn-primary" href="/attendance">Mark Attendance</a></button>
+
+<a class="btn btn-primary" href="/register">Register</a></button>
+
+{% endblock %}

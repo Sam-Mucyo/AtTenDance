@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mark Attendance
+{% endblock %}
+
+{% block main %}
+        <div>
+            If you see your name, you're attendance has been recorded!   
+        </div>
+        <div class="camera">
+        <img src="{{ url_for('video_feed') }}" height="40%" width="60%" class="webcam attendance"/>
+        </div>        
+        <a class="btn btn-primary" href="/">Done</a>
+
+{% endblock %}
